@@ -1,13 +1,22 @@
-import React from 'react';
-import { Platform, StyleSheet, Text, TouchableOpacity, TouchableNativeFeedback, View } from 'react-native';
+import React from "react";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  View,
+  TouchableNativeFeedbackComponent,
+  Button,
+} from "react-native";
 
-import Colors from '../contants/colors';
+import Colors from "../contants/colors";
 
-const PrimaryOutlineButton = props => {
+const PrimaryOutlineButton = (props) => {
   let ButtonComponent = TouchableOpacity;
 
-  if (Platform.OS === 'android' && Platform.Version >= 21) {
-    ButtonComponent = TouchableNativeFeedback;
+  if (Platform.Version >= 21) {
+    ButtonComponent = TouchableNativeFeedbackComponent;
   }
 
   return (
@@ -24,7 +33,7 @@ const PrimaryOutlineButton = props => {
 const styles = StyleSheet.create({
   buttonContainer: {
     borderRadius: 25,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   button: {
     borderColor: Colors.primary,
@@ -37,7 +46,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontFamily: "open-sans",
     fontSize: 18,
-  }
+  },
 });
 
 export default PrimaryOutlineButton;
